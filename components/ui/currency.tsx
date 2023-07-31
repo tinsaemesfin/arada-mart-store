@@ -8,7 +8,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 
 interface CurrencyProps {
-  value: number|bigint;
+  value: number|string;
 }
 
 
@@ -19,7 +19,7 @@ const Currency: React.FC<CurrencyProps> = ({ value }) => {
     },[])
     if(!isMounted) return null;
 
-  return <div className="font-semibold">{formatter.format(value)}</div>;
+  return <div className="font-semibold">{formatter.format(Number(value))}</div>;
 };
 
 export default Currency;
